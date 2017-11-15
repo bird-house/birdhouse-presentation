@@ -126,9 +126,9 @@ DKRZ - German Climate Compute Center
 %\framesubtitle{Subtitles are optional}
 
 \begin{itemize}
-  \item Over three years in development \pause
-  \item Relevant contributions by over a dozen individuals \pause
-  \item New licence: MIT \pause
+  \item Over three years in development
+  \item Relevant contributions by over a dozen individuals
+  \item New licence: MIT
   \item OSGeo accreditation around the corner \ldots
 \end{itemize}
 \end{frame}
@@ -140,10 +140,10 @@ DKRZ - German Climate Compute Center
 \frametitle{What is PyWPS?}
 
 \begin{itemize}
-  \item An implementation of the OGC Web Processing Service standard \pause
-\item Coded on the Python language (researcher friendly)  \pause
-\item Started in the Spring of 2006  \pause
-\item Supports all available tools in Python for geo-spatial operations  \pause
+  \item An implementation of the OGC Web Processing Service standard
+\item Coded on the Python language (researcher friendly)
+\item Started in the Spring of 2006
+\item Supports all available tools in Python for geo-spatial operations
 \item http://pywps.org
 
 \end{itemize}
@@ -155,9 +155,9 @@ DKRZ - German Climate Compute Center
 \frametitle{What PyWPS is not}
 
 \begin{itemize}
-  \item Complicated  \pause
-  \item A client  \pause
-  \item A GUI or any other user interface  \pause
+  \item Complicated
+  \item A client
+  \item A GUI or any other user interface
   \item a server with pre-installed processes
 \end{itemize}
 
@@ -170,10 +170,10 @@ DKRZ - German Climate Compute Center
 \frametitle{What is PyWPS good for?}
 
 \begin{itemize}
-  \item Make your models available to the world  \pause
-  \item Enables remote processing of complex and/or lengthy models  \pause
+  \item Make your models available to the world
+  \item Enables remote processing of complex and/or lengthy models
   \item Guarantees model inputs fit basic requirements
-        (e.g. type, number)  \pause
+        (e.g. type, number)
   \item Guarantees interoperability of model inputs and outputs
   \begin{itemize}
     \item using the OGC data standards
@@ -191,13 +191,13 @@ DKRZ - German Climate Compute Center
 \frametitle<presentation>{The OGC Web Processing Service}
 
 \begin{itemize}
-\item OGC open web standard for remote geo-spatial processing.  \pause
-\item Integrated with web data services: \textbf{WFS}, \textbf{WCS}.  \pause
+\item OGC open web standard for remote geo-spatial processing.
+\item Integrated with web data services: \textbf{WFS}, \textbf{WCS}.
 \item Three basic requests:
 \begin{itemize}
       \item  \textit{GetCapabilities}
       \item  \textit{DescribeProcess}
-      \item  \textit{Execute}   \pause
+      \item  \textit{Execute}
 \end{itemize}
 \item Three basic input/output classes:
 \begin{itemize}
@@ -232,21 +232,13 @@ DKRZ - German Climate Compute Center
 \frametitle<presentation>{Summary}
 
 \begin{itemize}
-  \pause
-  \item SQLAlchemy
-  \begin{itemize}
-    \item Improved logging
-    \item Powerful process management becomes possible
-    \item Support to many different database systems
-    \item \textit{Ad hoc} logging from user processes \ldots
-  \end{itemize}
-  \pause
+
   \item Deployment
   \begin{itemize}
     \item Nginx + Gunicorn provide the infrastructure for scalable services
     \item Scalability implies increased complexity
   \end{itemize}
-  \pause
+  
   \item{Docker containers}
   \begin{itemize}
     \item dockerfiles create pre-configured PyWPS images
