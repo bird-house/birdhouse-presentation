@@ -194,16 +194,143 @@ GIZ - German Development Cooperation
   \item An implementation of the OGC Web Processing Service standard
   \item Coded on the Python language (researcher friendly)
   \item Started in the Spring of 2006
-  \item Supports all available tools in Python for geo-spatial operations
+  \item Relevant contributions by over a dozen individuals
+  \item New licence: MIT
+  \item OSGeo accreditation around the corner \ldots
   \item http://pywps.org
 
 \end{itemize}
 \end{frame}
 
+% -----------------------------------------------
+\begin{frame}
+\frametitle{What is PyWPS good for?}
+
+\begin{itemize}
+  \item Make your models available to the world
+  \item Enables remote processing of complex and/or lengthy models
+  \item Guarantees model inputs fit basic requirements
+        (e.g. type, number)
+  \item Guarantees interoperability of model inputs and outputs
+  \begin{itemize}
+    \item using the OGC data standards
+	\item formalizing input/output data types
+  \end{itemize}
+\end{itemize}
+\end{frame}
 
 % -----------------------------------------------
 \begin{frame}
-\frametitle{PyWPS Scheduler Extension}
+\frametitle<presentation>{The role of a WSGI server}
+
+\begin{itemize}
+  \item WSGI - Common interface to multiple web applications frameworks  
+  \item WSGI Server - basic functions:
+  \begin{itemize}
+    \item accepts HTTP requests
+    \item replies to HTTP requests
+  \end{itemize}
+  \item WSGI provides \textit{concurrency}, allowing multiple:
+  \begin{itemize}
+    \item threads
+    \item workers
+    \item processes
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+% -----------------------------------------------
+\begin{frame}
+\frametitle<presentation>{Gunicorn (Green Unicorn)}
+
+\begin{tikzpicture}[remember picture,overlay]
+    \node[xshift=-2.5cm,yshift=-4cm] at (current page.north east)
+    {\includegraphics[height=2.2cm]{figures/GUnicorn}};
+\end{tikzpicture}
+
+\begin{itemize}
+  \item It is one of many WSGI servers out there
+  \item Easy to configure and use with Python
+  \item Promotes the concepts of ``workers''
+  \begin{itemize} \item essentially OS processes \end{itemize}
+  \item Each worker can run on a different CPU core
+  \begin{itemize} \item a worker can be a Flask application instance
+  \end{itemize}
+\end{itemize}
+
+\centering
+\footnotesize{http://gunicorn.org}
+
+\end{frame}
+
+% -----------------------------------------------
+\begin{frame}
+\frametitle<presentation>{Nginx}
+
+\begin{tikzpicture}[remember picture,overlay]
+    \node[xshift=-2.6cm,yshift=-3.4cm] at (current page.north east)
+    {\includegraphics[height=0.8cm]{figures/nginx}};
+\end{tikzpicture}
+
+\begin{itemize}
+  \item Essentially a web (HTTP) server
+  \item But more used for reverse-proxy
+  \item Acts as a single entrance point to all requests
+  \item Redirects requests to Gunicorn
+  \item Can redirect to multiple Gunicorns
+  \item Gateway to multiple servers and applications from a single URL
+\end{itemize}
+
+\centering
+\footnotesize{http://nginx.org/}
+
+\end{frame}
+
+% -----------------------------------------------
+\begin{frame}
+\frametitle<presentation>{The WSGI Onion}
+
+\begin{tikzpicture}[remember picture,overlay]
+    \node[xshift=-9.2cm,yshift=-5.8cm] at (current page.north east)
+    {\includegraphics[height=6cm]{figures/OnionWSGI_all}};
+\end{tikzpicture}
+
+\begin{textblock*}{5cm}(7cm,4cm)
+\begin{itemize}
+  \item Nginx - security, reverse proxy, load balancing
+  \item Gunicorn - concurrency, WSGI
+  \item Flask - web application framework
+\end{itemize}
+\end{textblock*}
+\end{frame}
+
+
+% -----------------------------------------------
+\begin{frame}
+\frametitle<presentation>{It's complicated!}
+
+\begin{itemize}
+
+  \item Scalability requires the orchestration of various software layers:
+   \begin{itemize}
+	  \item Nginx
+	  \item Gunicorn
+	  \item Flask
+	  \item PyWPS
+	\end{itemize}
+  \item Many packages to install
+  \item Many configurations to set-up
+\end{itemize}
+
+\vspace{0.4cm}
+\centering
+\Large{Too much work?}
+
+\end{frame}
+
+% -----------------------------------------------
+\begin{frame}
+\frametitle{Advanced: PyWPS Scheduler Extension}
 
   \begin{figure}[ht]
     \centering
