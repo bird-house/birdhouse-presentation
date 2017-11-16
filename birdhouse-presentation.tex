@@ -37,22 +37,23 @@
 %   affiliation.
 \author{\vspace{2.3cm}\\
 Carsten Ehbrecht\inst{1}
-%\and J.~M.~de~Jesus\inst{2}
+\and Stephan Kindermann\inst{1}
+\and Nils Hempelmann\inst{2}
 }
 %\author{\inst{1}}
 
 % - Use the \inst command only if there are several affiliations.
 % - Keep it simple, no one is interested in your street address.
-\institute[Universities of]
+\institute[Institute]
 {
 \inst{1}%
 DKRZ - German Climate Compute Center
-%\and
-%\inst{2}%
-%GeoCAT
+\and
+\inst{2}%
+GIZ - German Development Cooperation
 }
 
-\date{\footnotesize{$9^{th}$ of November / Python Frameworks Conference 2017}}
+\date{\footnotesize{$28^{th}$ of November 2017/ Python Frameworks Workshop at ECMWF}}
 
 
 % This is only inserted into the PDF information catalog. Can be left
@@ -101,11 +102,11 @@ DKRZ - German Climate Compute Center
 \begin{document}
 
 \begin{frame}
-   \tikz [remember picture,overlay]
-    \node at
-        ([yshift=4.8cm]current page.south)
-        %or: (current page.center)
-        {\includegraphics[height=2.8cm]{figures/pywps}};
+   % \tikz [remember picture,overlay]
+   %  \node at
+   %      ([yshift=4.8cm]current page.south)
+   %      %or: (current page.center)
+   %      {\includegraphics[height=2.8cm]{figures/pywps}};
    \titlepage
 \end{frame}
 
@@ -116,75 +117,9 @@ DKRZ - German Climate Compute Center
 \end{frame}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Introduction}
+\section{Motivation}
 
 %\subsection[Short First Subsection Name]{First Subsection Name}
-
-% -----------------------------------------------
-\begin{frame}
-\frametitle{PyWPS 4.0 is finally here}
-%\framesubtitle{Subtitles are optional}
-
-\begin{itemize}
-  \item Over three years in development
-  \item Relevant contributions by over a dozen individuals
-  \item New licence: MIT
-  \item OSGeo accreditation around the corner \ldots
-\end{itemize}
-\end{frame}
-
-
-
-% -----------------------------------------------
-\begin{frame}
-\frametitle{What is PyWPS?}
-
-\begin{itemize}
-  \item An implementation of the OGC Web Processing Service standard
-\item Coded on the Python language (researcher friendly)
-\item Started in the Spring of 2006
-\item Supports all available tools in Python for geo-spatial operations
-\item http://pywps.org
-
-\end{itemize}
-\end{frame}
-
-
-% -----------------------------------------------
-\begin{frame}
-\frametitle{What PyWPS is not}
-
-\begin{itemize}
-  \item Complicated
-  \item A client
-  \item A GUI or any other user interface
-  \item a server with pre-installed processes
-\end{itemize}
-
-\end{frame}
-
-
-
-% -----------------------------------------------
-\begin{frame}
-\frametitle{What is PyWPS good for?}
-
-\begin{itemize}
-  \item Make your models available to the world
-  \item Enables remote processing of complex and/or lengthy models
-  \item Guarantees model inputs fit basic requirements
-        (e.g. type, number)
-  \item Guarantees interoperability of model inputs and outputs
-  \begin{itemize}
-    \item using the OGC data standards
-	\item formalizing input/output data types
-  \end{itemize}
-\end{itemize}
-\end{frame}
-
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{OGC Web Processing Service}
 
 % -----------------------------------------------
 \begin{frame}
@@ -208,8 +143,6 @@ DKRZ - German Climate Compute Center
 \end{itemize}
 \end{frame}
 
-
-
 % -----------------------------------------------
 \begin{frame}
 \frametitle<presentation>{The OGC Web Processing Service}
@@ -221,6 +154,114 @@ DKRZ - German Climate Compute Center
 
 \centering
 \footnotesize{http://www.slideshare.net/TheodorFoerster/restful-web-processing-service}
+
+\end{frame}
+
+% -----------------------------------------------
+\begin{frame}
+\frametitle{WPS Use Case}
+
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=11.5cm]{figures/wps_adamsteer}
+  \end{figure}
+
+\centering
+\footnotesize{WPS for Point Clouds by Adam Steer, NCI, Australia}
+
+\end{frame}
+
+% -----------------------------------------------
+\begin{frame}
+\frametitle{WPS Use Case II}
+
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=11.5cm]{figures/wps-ensemble-robustness}
+  \end{figure}
+
+\end{frame}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{PyWPS}
+
+% -----------------------------------------------
+\begin{frame}
+\frametitle{What is PyWPS?}
+
+\begin{itemize}
+  \item An implementation of the OGC Web Processing Service standard
+  \item Coded on the Python language (researcher friendly)
+  \item Started in the Spring of 2006
+  \item Supports all available tools in Python for geo-spatial operations
+  \item http://pywps.org
+
+\end{itemize}
+\end{frame}
+
+
+% -----------------------------------------------
+\begin{frame}
+\frametitle{PyWPS Scheduler Extension}
+
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=11.5cm]{figures/pywps-scheduler-extension}
+  \end{figure}
+
+  \centering
+  \footnotesize{This extension is used by the CP4CDS Copernicus project}
+
+\end{frame}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Birdhouse}
+
+% -----------------------------------------------
+\begin{frame}
+\frametitle{What is Birdhouse?}
+
+\begin{itemize}
+  \item Supporting OGC Web Processing Services in the climate science community.
+  \item http://bird-house.github.io/
+
+\end{itemize}
+\end{frame}
+
+
+% -----------------------------------------------
+\begin{frame}
+\frametitle{Birdhouse Overview}
+
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[height=5.85cm]{figures/birdhouse-overview}
+  \end{figure}
+
+\end{frame}
+
+% -----------------------------------------------
+\begin{frame}
+\frametitle{WSGI Application}
+
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[height=5.85cm]{figures/wsgi-app}
+  \end{figure}
+
+\end{frame}
+
+
+% -----------------------------------------------
+\begin{frame}
+\frametitle{Twitcher Security Proxy}
+
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[height=5.85cm]{figures/twitcher}
+  \end{figure}
 
 \end{frame}
 
@@ -238,7 +279,7 @@ DKRZ - German Climate Compute Center
     \item Nginx + Gunicorn provide the infrastructure for scalable services
     \item Scalability implies increased complexity
   \end{itemize}
-  
+
   \item{Docker containers}
   \begin{itemize}
     \item dockerfiles create pre-configured PyWPS images
@@ -261,7 +302,7 @@ DKRZ - German Climate Compute Center
 \Huge{Thank you!}
 
 \vspace{0.4cm}
-\normalsize{www.pywps.org}
+\normalsize{http://bird-house.github.io/}
 \end{frame}
 
 \end{document}
