@@ -297,7 +297,7 @@ http://localhost/wps?service=WPS&version=1.0.0 \
   \begin{itemize}
     \item Many components: PyWPS, Nginx, Gunicorn, ncWMS, \ldots
     \item Lots of packages: cdo, cfchecker, OCGIS, numpy, R, \ldots
-    \item Many configuration files
+    \item Many configurations to set-up
     \item Reproducible installation
     \item Different Linux distributions (Centos, Debian, \ldots)
   \end{itemize}
@@ -310,7 +310,6 @@ http://localhost/wps?service=WPS&version=1.0.0 \
   \begin{itemize}
     \item Originally for python ... but has a general concept
     \item Does not need admin rights
-    \item Manages dependencies
   \end{itemize}
   Install PyWPS from birdhouse channel
     \begin{verbatim}
@@ -324,10 +323,10 @@ http://localhost/wps?service=WPS&version=1.0.0 \
 
 % -----------------------------------------------
 \begin{frame}[fragile]
-  \frametitle<presentation>{Installation with Buildout}
+  \frametitle<presentation>{Deployment with Buildout}
   \begin{itemize}
-    \item For convienience there is a Makefile to call the Buildout commands
-    \item All Birdhouse components (WPS, Phoenix) are installed in the same way
+    \item Makefile to wrap Buildout commands
+    \item A common deployment pattern for all Birds
   \end{itemize}
     \begin{verbatim}
 # git clone https://github.com/bird-house/emu.git
