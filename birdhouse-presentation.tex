@@ -121,27 +121,6 @@ GIZ - German Development Cooperation
 
 %\subsection[Short First Subsection Name]{First Subsection Name}
 
-% -----------------------------------------------
-\begin{frame}
-\frametitle<presentation>{The OGC Web Processing Service}
-
-\begin{itemize}
-\item OGC open web standard for remote geo-spatial processing.
-\item Other widley used OGC web standards: \textbf{WMS}, \textbf{WFS}, \textbf{WCS}.
-\item Three basic requests:
-\begin{itemize}
-      \item  \textit{GetCapabilities}
-      \item  \textit{DescribeProcess}
-      \item  \textit{Execute}
-\end{itemize}
-\item Three basic input/output classes:
-\begin{itemize}
-      \item  \textit{Literal}
-      \item  \textit{Complex} - for geo-spatial data and services
-      \item  \textit{BoundingBox} - for geo-spatial data extent
-\end{itemize}
-\end{itemize}
-\end{frame}
 
 % -----------------------------------------------
 \begin{frame}
@@ -184,21 +163,6 @@ GIZ - German Development Cooperation
 \end{frame}
 
 % -----------------------------------------------
-\begin{frame}
-  \frametitle<presentation>{What does WPS provide?}
-  \begin{itemize}
-    \item web access to your algorithms (GET request with key-value, POST request with xml)
-    \item WPS knows about the inputs and outpus of a process
-    \item processes are self-describing (GetCapabilites, DescribeProcess)
-    \item sync and async calls (async calls with status document)
-    \item its a standard interface ... several implementations are available (PyWPS, GeoServer, 52 North, COWS, ...)
-    \item process definition is easy to write
-    \item not restricted to a specific programming language
-    \item can be used internally to provide enhanced functionality to web portals
-  \end{itemize}
-\end{frame}
-
-% -----------------------------------------------
 \begin{frame}[fragile]
   \frametitle<presentation>{Enable your code as WPS process}
   \begin{block}{Use wps decorator for your function}
@@ -235,89 +199,6 @@ http://localhost/wps?service=WPS&version=1.0.0 \
 \end{itemize}
 \end{frame}
 
-% -----------------------------------------------
-\begin{frame}
-\frametitle{What is PyWPS good for?}
-
-\begin{itemize}
-  \item Make your models available to the world
-  \item Enables remote processing of complex and/or lengthy models
-  \item Guarantees model inputs fit basic requirements
-        (e.g. type, number)
-  \item Guarantees interoperability of model inputs and outputs
-  \begin{itemize}
-    \item using the OGC data standards
-	\item formalizing input/output data types
-  \end{itemize}
-\end{itemize}
-\end{frame}
-
-% -----------------------------------------------
-\begin{frame}
-\frametitle<presentation>{The role of a WSGI server}
-
-\begin{itemize}
-  \item WSGI - Common interface to multiple web applications frameworks
-  \item WSGI Server - basic functions:
-  \begin{itemize}
-    \item accepts HTTP requests
-    \item replies to HTTP requests
-  \end{itemize}
-  \item WSGI provides \textit{concurrency}, allowing multiple:
-  \begin{itemize}
-    \item threads
-    \item workers
-    \item processes
-  \end{itemize}
-\end{itemize}
-\end{frame}
-
-% -----------------------------------------------
-\begin{frame}
-\frametitle<presentation>{Gunicorn (Green Unicorn)}
-
-\begin{tikzpicture}[remember picture,overlay]
-    \node[xshift=-2.5cm,yshift=-4cm] at (current page.north east)
-    {\includegraphics[height=2.2cm]{images/GUnicorn}};
-\end{tikzpicture}
-
-\begin{itemize}
-  \item It is one of many WSGI servers out there
-  \item Easy to configure and use with Python
-  \item Promotes the concepts of ``workers''
-  \begin{itemize} \item essentially OS processes \end{itemize}
-  \item Each worker can run on a different CPU core
-  \begin{itemize} \item a worker can be a Flask application instance
-  \end{itemize}
-\end{itemize}
-
-\centering
-\footnotesize{http://gunicorn.org}
-
-\end{frame}
-
-% -----------------------------------------------
-\begin{frame}
-\frametitle<presentation>{Nginx}
-
-\begin{tikzpicture}[remember picture,overlay]
-    \node[xshift=-2.6cm,yshift=-3.4cm] at (current page.north east)
-    {\includegraphics[height=0.8cm]{images/nginx}};
-\end{tikzpicture}
-
-\begin{itemize}
-  \item Essentially a web (HTTP) server
-  \item But more used for reverse-proxy
-  \item Acts as a single entrance point to all requests
-  \item Redirects requests to Gunicorn
-  \item Can redirect to multiple Gunicorns
-  \item Gateway to multiple servers and applications from a single URL
-\end{itemize}
-
-\centering
-\footnotesize{http://nginx.org/}
-
-\end{frame}
 
 % -----------------------------------------------
 \begin{frame}
@@ -358,20 +239,6 @@ http://localhost/wps?service=WPS&version=1.0.0 \
 \vspace{0.4cm}
 \centering
 \Large{Too much work?}
-
-\end{frame}
-
-% -----------------------------------------------
-\begin{frame}
-\frametitle<presentation>{Advanced: PyWPS Scheduler Extension}
-
-  \begin{figure}[ht]
-    \centering
-    \includegraphics[width=11.5cm]{images/pywps-scheduler-extension}
-  \end{figure}
-
-  \centering
-  \footnotesize{This extension is used by the CP4CDS Copernicus project}
 
 \end{frame}
 
@@ -475,18 +342,6 @@ http://localhost/wps?service=WPS&version=1.0.0 \
 \end{frame}
 
 % -----------------------------------------------
-\begin{frame}
-  \frametitle<presentation>{Buildout}
-  \begin{itemize}
-    \item Python based build system
-    \item creates application with multiple components including configuration files
-    \item works also for non-Python parts
-    \item using a buildout configuration
-    \item can be extended with recipes
-  \end{itemize}
-\end{frame}
-
-% -----------------------------------------------
 \begin{frame}[fragile]
   \frametitle<presentation>{Install Birdhouse Component with Buildout}
   \begin{itemize}
@@ -508,35 +363,6 @@ http://localhost/wps?service=WPS&version=1.0.0 \
 >> make restart
     \end{verbatim}
   \end{block}
-\end{frame}
-
-% -----------------------------------------------
-\begin{frame}
-\frametitle<presentation>{Docker}
-
-\begin{tikzpicture}[remember picture,overlay]
-    \node[xshift=-3cm,yshift=-5cm] at (current page.north east)
-    {\includegraphics[height=4cm]{images/docker}};
-\end{tikzpicture}
-
-\begin{itemize}
-  \item An OS level virtualisation engine
-  \item Docker runs software \textit{containers}
-  \begin{itemize} \item a very light weight virtual machine \end{itemize}
-  \item Uses Linux kernel namespaces to isolate\\ available resources:
-  \begin{itemize}
-    \item operating environment
-    \item process and user IDs
-    \item process trees
-    \item network
-	\item mounted file systems
-  \end{itemize}
-  \item Virtualisation provided by the OS itself
-\end{itemize}
-
-\centering
-\footnotesize{https://docker.com}
-
 \end{frame}
 
 % -----------------------------------------------
@@ -574,12 +400,15 @@ http://localhost:8094/wps? \
 
 % -----------------------------------------------
 \begin{frame}
-\frametitle<presentation>{Twitcher Security Proxy}
+\frametitle<presentation>{Advanced: PyWPS Scheduler Extension}
 
   \begin{figure}[ht]
     \centering
-    \includegraphics[height=5.85cm]{images/twitcher}
+    \includegraphics[width=11.5cm]{images/pywps-scheduler-extension}
   \end{figure}
+
+  \centering
+  \footnotesize{This extension is used by the CP4CDS Copernicus project}
 
 \end{frame}
 
@@ -627,6 +456,184 @@ http://localhost:8094/wps? \
 
 \vspace{0.4cm}
 \normalsize{http://bird-house.github.io/}
+\end{frame}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+
+\section{Appendix}
+
+% -----------------------------------------------
+\begin{frame}
+\frametitle<presentation>{The OGC Web Processing Service}
+
+\begin{itemize}
+\item OGC open web standard for remote geo-spatial processing.
+\item Other widley used OGC web standards: \textbf{WMS}, \textbf{WFS}, \textbf{WCS}.
+\item Three basic requests:
+\begin{itemize}
+      \item  \textit{GetCapabilities}
+      \item  \textit{DescribeProcess}
+      \item  \textit{Execute}
+\end{itemize}
+\item Three basic input/output classes:
+\begin{itemize}
+      \item  \textit{Literal}
+      \item  \textit{Complex} - for geo-spatial data and services
+      \item  \textit{BoundingBox} - for geo-spatial data extent
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+% -----------------------------------------------
+\begin{frame}
+  \frametitle<presentation>{What does WPS provide?}
+  \begin{itemize}
+    \item web access to your algorithms (GET request with key-value, POST request with xml)
+    \item WPS knows about the inputs and outpus of a process
+    \item processes are self-describing (GetCapabilites, DescribeProcess)
+    \item sync and async calls (async calls with status document)
+    \item its a standard interface ... several implementations are available (PyWPS, GeoServer, 52 North, COWS, ...)
+    \item process definition is easy to write
+    \item not restricted to a specific programming language
+    \item can be used internally to provide enhanced functionality to web portals
+  \end{itemize}
+\end{frame}
+
+% -----------------------------------------------
+\begin{frame}
+\frametitle{What is PyWPS good for?}
+
+\begin{itemize}
+  \item Make your models available to the world
+  \item Enables remote processing of complex and/or lengthy models
+  \item Guarantees model inputs fit basic requirements
+        (e.g. type, number)
+  \item Guarantees interoperability of model inputs and outputs
+  \begin{itemize}
+    \item using the OGC data standards
+	\item formalizing input/output data types
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+% -----------------------------------------------
+\begin{frame}
+\frametitle<presentation>{The role of a WSGI server}
+
+\begin{itemize}
+  \item WSGI - Common interface to multiple web applications frameworks
+  \item WSGI Server - basic functions:
+  \begin{itemize}
+    \item accepts HTTP requests
+    \item replies to HTTP requests
+  \end{itemize}
+  \item WSGI provides \textit{concurrency}, allowing multiple:
+  \begin{itemize}
+    \item threads
+    \item workers
+    \item processes
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+% -----------------------------------------------
+\begin{frame}
+\frametitle<presentation>{Gunicorn (Green Unicorn)}
+
+\begin{tikzpicture}[remember picture,overlay]
+    \node[xshift=-2.5cm,yshift=-4cm] at (current page.north east)
+    {\includegraphics[height=2.2cm]{images/GUnicorn}};
+\end{tikzpicture}
+
+\begin{itemize}
+  \item It is one of many WSGI servers out there
+  \item Easy to configure and use with Python
+  \item Promotes the concepts of ``workers''
+  \begin{itemize} \item essentially OS processes \end{itemize}
+  \item Each worker can run on a different CPU core
+  \begin{itemize} \item a worker can be a Flask application instance
+  \end{itemize}
+\end{itemize}
+
+\centering
+\footnotesize{http://gunicorn.org}
+
+\end{frame}
+
+% -----------------------------------------------
+\begin{frame}
+\frametitle<presentation>{Nginx}
+
+\begin{tikzpicture}[remember picture,overlay]
+    \node[xshift=-2.6cm,yshift=-3.4cm] at (current page.north east)
+    {\includegraphics[height=0.8cm]{images/nginx}};
+\end{tikzpicture}
+
+\begin{itemize}
+  \item Essentially a web (HTTP) server
+  \item But more used for reverse-proxy
+  \item Acts as a single entrance point to all requests
+  \item Redirects requests to Gunicorn
+  \item Can redirect to multiple Gunicorns
+  \item Gateway to multiple servers and applications from a single URL
+\end{itemize}
+
+\centering
+\footnotesize{http://nginx.org/}
+
+\end{frame}
+
+% -----------------------------------------------
+\begin{frame}
+  \frametitle<presentation>{Buildout}
+  \begin{itemize}
+    \item Python based build system
+    \item creates application with multiple components including configuration files
+    \item works also for non-Python parts
+    \item using a buildout configuration
+    \item can be extended with recipes
+  \end{itemize}
+\end{frame}
+
+% -----------------------------------------------
+\begin{frame}
+\frametitle<presentation>{Docker}
+
+\begin{tikzpicture}[remember picture,overlay]
+    \node[xshift=-3cm,yshift=-5cm] at (current page.north east)
+    {\includegraphics[height=4cm]{images/docker}};
+\end{tikzpicture}
+
+\begin{itemize}
+  \item An OS level virtualisation engine
+  \item Docker runs software \textit{containers}
+  \begin{itemize} \item a very light weight virtual machine \end{itemize}
+  \item Uses Linux kernel namespaces to isolate\\ available resources:
+  \begin{itemize}
+    \item operating environment
+    \item process and user IDs
+    \item process trees
+    \item network
+	\item mounted file systems
+  \end{itemize}
+  \item Virtualisation provided by the OS itself
+\end{itemize}
+
+\centering
+\footnotesize{https://docker.com}
+
+\end{frame}
+
+% -----------------------------------------------
+\begin{frame}
+\frametitle<presentation>{Twitcher Security Proxy}
+
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[height=5.85cm]{images/twitcher}
+  \end{figure}
+
 \end{frame}
 
 \end{document}
