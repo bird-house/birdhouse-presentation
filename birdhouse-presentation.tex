@@ -233,6 +233,7 @@ http://localhost/wps?service=WPS&version=1.0.0 \
 	\end{itemize}
   \item Many packages to install
   \item Many configurations to set-up
+  \item No clients for testing
 \end{itemize}
 
 \vspace{0.4cm}
@@ -344,44 +345,59 @@ http://localhost/wps?service=WPS&version=1.0.0 \
 \begin{frame}[fragile]
   \frametitle<presentation>{Install Birdhouse Component with Buildout}
   \begin{itemize}
-    \item for convienience there is a Makefile to call the buildout commands
+    \item for convienience there is a Makefile to call the Buildout commands
     \item all Birdhouse components (WPS, Phoenix) are installed in the same way
   \end{itemize}
   \begin{block}{First installation}
     \begin{verbatim}
->> git clone https://github.com/bird-house/emu.git
->> cd emu
->> make clean install
->> make start
+# git clone https://github.com/bird-house/emu.git
+# cd emu
+# make clean install
+# make start
     \end{verbatim}
   \end{block}
 \begin{block}{Update configuration like hostname, port}
     \begin{verbatim}
->> vim custom.cfg
->> make update
->> make restart
+# vim custom.cfg
+# make update
+# make restart
     \end{verbatim}
   \end{block}
 \end{frame}
 
 % -----------------------------------------------
+\begin{frame}
+\frametitle<presentation>{Docker images}
+
+\begin{itemize}
+  \item Docker Hub is a public repository for dockerfiles
+  \item Birdhouse repository with automatically updated docker images
+\end{itemize}
+
+  \begin{figure}[ht]
+   \centering
+   \includegraphics[height=3.6cm]{images/dockerhub.png}
+  \end{figure}
+
+\vspace{0.2cm}
+\centering
+\footnotesize{\url{https://hub.docker.com/u/birdhouse/}}
+
+\end{frame}
+
+% -----------------------------------------------
 \begin{frame}[fragile,shrink]
   \frametitle<presentation>{Try a Docker ...}
-  \begin{block}{Images are available on DockerHub}
-    \url{https://hub.docker.com/u/birdhouse/}
-  \end{block}
-  \begin{block}{Start a docker image with Emu WPS}
+  Running a docker image with Emu WPS on port 8094
     \begin{verbatim}
->> docker run -it -p 8090:8090 -p 8094:8094 \
+# docker run -it -p 8090:8090 -p 8094:8094 \
        --name=emu_wps birdhouse/emu
     \end{verbatim}
-  \end{block}
-  \begin{block}{Run WPS GetCapabilities Request}
+  Running a WPS GetCapabilities request
     \begin{verbatim}
 http://localhost:8094/wps? \
  service=WPS&version=1.0.0&request=getcapabilities
     \end{verbatim}
-  \end{block}
 \end{frame}
 
 % -----------------------------------------------
