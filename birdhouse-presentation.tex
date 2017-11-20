@@ -129,7 +129,7 @@ GIZ - German Development Cooperation
   \begin{figure}[ht]
 
    \centering
-   \includegraphics[height=5.85cm]{images/WPS}
+   \includegraphics[height=5cm]{images/WPS}
   \end{figure}
 
 \centering
@@ -160,6 +160,9 @@ GIZ - German Development Cooperation
     \includegraphics[width=11.5cm]{images/wps-ensemble-robustness}
   \end{figure}
 
+  %\centering
+  %\footnotesize{Statistical analysis of climate model data}
+
 \end{frame}
 
 % -----------------------------------------------
@@ -172,7 +175,10 @@ GIZ - German Development Cooperation
 \begin{frame}[fragile]
   \frametitle<presentation>{Running Function as Web Processing Service}
     \begin{verbatim}
-http://localhost/wps?service=WPS&version=1.0.0 \
+$ curl -s -o result.xml \
+http://localhost/wps? \
+ &service=WPS \
+ &version=1.0.0 \
  &request=execute \
  &identifier=myplot \
  &DataInputs=nc_file=http://;variable=tas
@@ -193,9 +199,12 @@ http://localhost/wps?service=WPS&version=1.0.0 \
   \item Easy to hack (developer friendly)
   \item Relevant contributions by over a dozen individuals
   \item OSGeo accreditation around the corner \ldots
-  \item \url{http://pywps.org}
-
 \end{itemize}
+
+\vspace{0.4cm}
+\centering
+\footnotesize{\url{http://pywps.org}}
+
 \end{frame}
 
 
@@ -344,7 +353,7 @@ $ make restart
 
 % -----------------------------------------------
 \begin{frame}
-\frametitle<presentation>{Docker images}
+\frametitle<presentation>{Docker}
 
 \begin{itemize}
   \item Docker Hub is a public repository for dockerfiles
@@ -364,7 +373,13 @@ $ make restart
 
 % -----------------------------------------------
 \begin{frame}[fragile,shrink]
-  \frametitle<presentation>{Try a Docker ...}
+  \frametitle<presentation>{Try a Docker \ldots}
+
+  \begin{tikzpicture}[remember picture,overlay]
+      \node[xshift=-3cm,yshift=-7cm] at (current page.north east)
+      {\includegraphics[height=3cm]{images/docker}};
+  \end{tikzpicture}
+
   Running a docker image with Emu WPS on port 8080
     \begin{verbatim}
 $ docker pull birdhouse/emu
@@ -386,7 +401,16 @@ http://localhost:8080/wps? \
   \frametitle<presentation>{Phoenix web-based WPS client}
   \begin{figure}[ht]
     \centering
-    \includegraphics[width=10cm]{images/phoenix.png}
+    \includegraphics[width=10cm]{images/phoenix}
+  \end{figure}
+\end{frame}
+
+% -----------------------------------------------
+\begin{frame}
+  \frametitle<presentation>{Phoenix Example}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[height=6cm]{images/phoenix-example}
   \end{figure}
 \end{frame}
 
