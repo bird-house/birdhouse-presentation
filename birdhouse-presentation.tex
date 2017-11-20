@@ -279,7 +279,7 @@ http://localhost/wps?service=WPS&version=1.0.0 \
 
   \begin{figure}[ht]
     \centering
-    \includegraphics[height=5.85cm]{images/wsgi-app}
+    \includegraphics[height=7cm]{images/wsgi-app}
   \end{figure}
 
 \end{frame}
@@ -313,11 +313,11 @@ http://localhost/wps?service=WPS&version=1.0.0 \
   \end{itemize}
   Install PyWPS from birdhouse channel
     \begin{verbatim}
-# conda install -c birdhouse pywps
+$ conda install -c birdhouse pywps
     \end{verbatim}
   Create conda environment \textbf{pywps}
     \begin{verbatim}
-# conda create -n pywps -c birdhouse pywps
+$ conda create -n pywps -c birdhouse pywps
     \end{verbatim}
 \end{frame}
 
@@ -329,16 +329,16 @@ http://localhost/wps?service=WPS&version=1.0.0 \
     \item A common deployment pattern for all Birds
   \end{itemize}
     \begin{verbatim}
-# git clone https://github.com/bird-house/emu.git
-# cd emu
-# make clean install
-# make start
+$ git clone https://github.com/bird-house/emu.git
+$ cd emu
+$ make clean install
+$ make start
     \end{verbatim}
   Update configuration like hostname, port
     \begin{verbatim}
-# vim custom.cfg
-# make update
-# make restart
+$ vim custom.cfg
+$ make update
+$ make restart
     \end{verbatim}
 \end{frame}
 
@@ -367,21 +367,25 @@ http://localhost/wps?service=WPS&version=1.0.0 \
   \frametitle<presentation>{Try a Docker ...}
   Running a docker image with Emu WPS on port 8080
     \begin{verbatim}
-# docker pull birdhouse/emu
-# docker run -it -p 8000:8000 -p 8080:8080 \
+$ docker pull birdhouse/emu
+$ docker run -it -p 8000:8000 -p 8080:8080 \
        --name=emu_wps birdhouse/emu
     \end{verbatim}
   Running a WPS GetCapabilities request
     \begin{verbatim}
+$ curl -s -o caps.xml \
 http://localhost:8080/wps? \
- service=WPS&version=1.0.0&request=getcapabilities
+  service=WPS& \
+  version=1.0.0& \
+  request=GetCapabilities
     \end{verbatim}
 \end{frame}
 
 % -----------------------------------------------
 \begin{frame}
   \frametitle<presentation>{Phoenix web-based WPS client}
-  \begin{figure}
+  \begin{figure}[ht]
+    \centering
     \includegraphics[width=10cm]{images/phoenix.png}
   \end{figure}
 \end{frame}
@@ -390,12 +394,13 @@ http://localhost:8080/wps? \
 \begin{frame}[fragile]
   \frametitle<presentation>{Birdy command line WPS client}
   \begin{verbatim}
->> conda install -c birdhouse birdhouse-birdy
->> export WPS_SERVICS=http://localhost:8094/wps
->> birdy -h
+$ conda install -c birdhouse birdhouse-birdy
+$ export WPS_SERVICS=http://localhost:8094/wps
+$ birdy -h
   \end{verbatim}
-  \begin{figure}
-    \includegraphics[width=10cm]{images/birdy-terminal}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[height=4cm]{images/birdy-terminal}
   \end{figure}
 \end{frame}
 
@@ -403,12 +408,13 @@ http://localhost:8080/wps? \
 \begin{frame}
   \frametitle{WPS Security Proxy}
   \begin{itemize}
-    \item using string token (uuid) as part of URL or in request header to protect WPS execute access
+    \item Using string token (uuid) as part of URL or in request header to protect WPS execute access
     \item X509 certificates to access (remote) data from ESGF are provided by proxy (using environ)
-    \item implemented as WSGI application layer
+    \item Implemented as WSGI middleware service
+    \item \url{http://twitcher.readthedocs.io/en/latest/}
   \end{itemize}
   \begin{figure}
-    \includegraphics[width=11.5cm]{images/wps-proxy}
+    \includegraphics[width=11.0cm]{images/wps-proxy}
   \end{figure}
 \end{frame}
 
@@ -472,9 +478,12 @@ http://localhost:8080/wps? \
     \item Ouranos needs a platform for climate services
     \item Creating and delivering climate products
     \item Make climate research less painful
-    \item \url{https://www.researchgate.net/project/PAVICS}
   \end{itemize}
   \end{textblock*}
+
+  \vspace{3cm}
+  \centering
+  \footnotesize{\url{https://www.researchgate.net/project/PAVICS}}
 \end{frame}
 
 
@@ -519,8 +528,9 @@ http://localhost:8080/wps? \
 \centering
 \Huge{The End}
 
+\centering
 \vspace{0.4cm}
-\normalsize{http://bird-house.github.io/}
+\footnotesize{\url{http://bird-house.github.io/}}
 \end{frame}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
