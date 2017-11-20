@@ -324,45 +324,40 @@ http://localhost/wps?service=WPS&version=1.0.0 \
 \begin{frame}[fragile]
   \frametitle<presentation>{Conda Package Manager}
   \begin{itemize}
-    \item originally for python ... but has a general concept
-    \item does not need admin rights
-    \item manages dependencies
+    \item Originally for python ... but has a general concept
+    \item Does not need admin rights
+    \item Manages dependencies
   \end{itemize}
-  \begin{block}{install from birdhouse channel}
+  Install PyWPS from birdhouse channel
     \begin{verbatim}
->> conda install -c birdhouse pywps cdo
+# conda install -c birdhouse pywps
     \end{verbatim}
-  \end{block}
-  \begin{block}{create conda environment=emu}
+  Create conda environment \textbf{pywps}
     \begin{verbatim}
->> conda create -n emu -c birdhouse \
-      python=2.7 cdo pywps
+# conda create -n pywps -c birdhouse \
+    python=3 pywps
     \end{verbatim}
-  \end{block}
 \end{frame}
 
 % -----------------------------------------------
 \begin{frame}[fragile]
-  \frametitle<presentation>{Install Birdhouse Component with Buildout}
+  \frametitle<presentation>{Installation with Buildout}
   \begin{itemize}
-    \item for convienience there is a Makefile to call the Buildout commands
-    \item all Birdhouse components (WPS, Phoenix) are installed in the same way
+    \item For convienience there is a Makefile to call the Buildout commands
+    \item All Birdhouse components (WPS, Phoenix) are installed in the same way
   \end{itemize}
-  \begin{block}{First installation}
     \begin{verbatim}
 # git clone https://github.com/bird-house/emu.git
 # cd emu
 # make clean install
 # make start
     \end{verbatim}
-  \end{block}
-\begin{block}{Update configuration like hostname, port}
+  Update configuration like hostname, port
     \begin{verbatim}
 # vim custom.cfg
 # make update
 # make restart
     \end{verbatim}
-  \end{block}
 \end{frame}
 
 % -----------------------------------------------
@@ -388,14 +383,15 @@ http://localhost/wps?service=WPS&version=1.0.0 \
 % -----------------------------------------------
 \begin{frame}[fragile,shrink]
   \frametitle<presentation>{Try a Docker ...}
-  Running a docker image with Emu WPS on port 8094
+  Running a docker image with Emu WPS on port 8080
     \begin{verbatim}
-# docker run -it -p 8090:8090 -p 8094:8094 \
+# docker pull birdhouse/emu
+# docker run -it -p 8000:8000 -p 8080:8080 \
        --name=emu_wps birdhouse/emu
     \end{verbatim}
   Running a WPS GetCapabilities request
     \begin{verbatim}
-http://localhost:8094/wps? \
+http://localhost:8080/wps? \
  service=WPS&version=1.0.0&request=getcapabilities
     \end{verbatim}
 \end{frame}
