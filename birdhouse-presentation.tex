@@ -164,20 +164,19 @@ GIZ - German Development Cooperation
 
 % -----------------------------------------------
 \begin{frame}[fragile]
-  \frametitle<presentation>{Enable your code as WPS process}
-  \begin{block}{Use wps decorator for your function}
-    \tiny
-    \lstset{language=python}
-    \lstinputlisting{static/wps_myplot.py}
-  \end{block}
-  \begin{block}{Execute your function with WPS}
+  \frametitle<presentation>{Function as a Service}
+    \lstset{language=python} \lstinputlisting{static/wps_myplot.py}
+\end{frame}
+
+% -----------------------------------------------
+\begin{frame}[fragile]
+  \frametitle<presentation>{Running Function as Web Processing Service}
     \begin{verbatim}
 http://localhost/wps?service=WPS&version=1.0.0 \
  &request=execute \
  &identifier=myplot \
  &DataInputs=nc_file=http://;variable=tas
     \end{verbatim}
-  \end{block}
 \end{frame}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -185,12 +184,12 @@ http://localhost/wps?service=WPS&version=1.0.0 \
 
 % -----------------------------------------------
 \begin{frame}
-\frametitle{What is PyWPS?}
+\frametitle<presentation>{What is PyWPS?}
 
 \begin{itemize}
   \item An implementation of the OGC Web Processing Service standard
   \item Implements WPS 1.0.0 standard (WPS 2.0.0 in progress)
-  \item Coded on the Python language (researcher friendly)
+  \item Coded in the Python language (researcher friendly)
   \item Easy to hack (developer friendly)
   \item Relevant contributions by over a dozen individuals
   \item OSGeo accreditation around the corner \ldots
@@ -288,16 +287,21 @@ http://localhost/wps?service=WPS&version=1.0.0 \
 % -----------------------------------------------
 \begin{frame}
   \frametitle<presentation>{Manage the Chaos}
+
+  \begin{tikzpicture}[remember picture,overlay]
+      \node[xshift=-9.5cm,yshift=-5cm] at (current page.north east)
+      {\includegraphics[height=3.5cm]{images/chaos}};
+  \end{tikzpicture}
+
+  \begin{textblock*}{7cm}(6cm,3cm)
   \begin{itemize}
     \item Many components: PyWPS, Nginx, Gunicorn, ncWMS, \ldots
-    \item Lots of packages: cdo, cfchecker, ocgis, numpy, R, \ldots
+    \item Lots of packages: cdo, cfchecker, OCGIS, numpy, R, \ldots
     \item Many configuration files
     \item Reproducible installation
     \item Different Linux distributions (Centos, Debian, \ldots)
   \end{itemize}
-  \begin{figure}
-    \includegraphics[width=5cm]{images/chaos}
-  \end{figure}
+  \end{textblock*}
 \end{frame}
 
 % -----------------------------------------------

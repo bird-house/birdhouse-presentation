@@ -1,8 +1,10 @@
-@wps
+@wps  # wps decorator
 def myplot(nc_file, variable):
     """
-    nc_file application/netcdf
-    variable string
+    Generates a plot for given dataset and variable.
+
+    nc_file application/netcdf Dataset
+    variable string Variable name
     """
-    # plot variable of nc_file
+    # ... create a nice plot here
     return plot.png
