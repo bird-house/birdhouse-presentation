@@ -189,12 +189,12 @@ http://localhost/wps?service=WPS&version=1.0.0 \
 
 \begin{itemize}
   \item An implementation of the OGC Web Processing Service standard
+  \item Implements WPS 1.0.0 standard (WPS 2.0.0 in progress)
   \item Coded on the Python language (researcher friendly)
-  \item Started in the Spring of 2006
+  \item Easy to hack (developer friendly)
   \item Relevant contributions by over a dozen individuals
-  \item New licence: MIT
   \item OSGeo accreditation around the corner \ldots
-  \item http://pywps.org
+  \item \url{http://pywps.org}
 
 \end{itemize}
 \end{frame}
@@ -206,14 +206,14 @@ http://localhost/wps?service=WPS&version=1.0.0 \
 
 \begin{tikzpicture}[remember picture,overlay]
     \node[xshift=-9.2cm,yshift=-5.8cm] at (current page.north east)
-    {\includegraphics[height=6cm]{images/OnionWSGI_all}};
+    {\includegraphics[height=6cm]{images/wsgi-onion}};
 \end{tikzpicture}
 
 \begin{textblock*}{5cm}(7cm,4cm)
 \begin{itemize}
   \item Nginx - security, reverse proxy, load balancing
   \item Gunicorn - concurrency, WSGI
-  \item Flask - web application framework
+  \item WSGI App - PyWPS WSGI application
 \end{itemize}
 \end{textblock*}
 \end{frame}
@@ -229,7 +229,6 @@ http://localhost/wps?service=WPS&version=1.0.0 \
    \begin{itemize}
 	  \item Nginx
 	  \item Gunicorn
-	  \item Flask
 	  \item PyWPS
 	\end{itemize}
   \item Many packages to install
