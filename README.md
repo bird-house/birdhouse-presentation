@@ -14,7 +14,13 @@ pdflatex birdhouse-presentation
 
 * do not forget to change the author, date and event on the cover slide.
 
-# See also
+## Past Talks
+
+* v1.0 (2017/11/28) Birdhouse Talk at Python Framework at ECMWF (Weather Centre), Reading, UK
+
+https://www.ecmwf.int/en/learning/workshops/workshop-developing-python-frameworks-earth-system-sciences
+
+## See also
 
 * https://github.com/PyWPS/pywps-presentation-advanced
 * https://github.com/bird-house/birdhouse-docs
