@@ -16,7 +16,7 @@ pdflatex birdhouse-presentation
 
 ## Past Talks
 
-* v1.0 (2017/11/28) Birdhouse Talk at Python Framework at ECMWF (Weather Centre), Reading, UK
+* v1.0 (2017/11/28) Birdhouse Talk at Python Framework Workshop at ECMWF (Weather Centre), Reading, UK
 
 https://www.ecmwf.int/en/learning/workshops/workshop-developing-python-frameworks-earth-system-sciences
 
